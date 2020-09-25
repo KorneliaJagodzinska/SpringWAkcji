@@ -44,5 +44,11 @@ public class DesignTacoController {
         model.addAttribute("design", new Taco());
         return "design";
     }
+    @PostMapping
+    public String processDesign(Design design){
+        log.info("Przetwarzanie projektu taco: "+ design);
+        return "redirect:/orders/current";
+
+    }
 
 }
