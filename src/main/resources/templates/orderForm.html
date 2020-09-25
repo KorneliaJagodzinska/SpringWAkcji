@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplikacja Taco Cloud</title>
+    <link rel="stylesheet" th:href="@{styles.css}"/>
+
+</head>
+<body>
+
+<form method="POST" th:action="@{/orders}" th:object="${order}">
+    <h1>Zamów przygotowane taco!</h1>
+    <img th:src="@{images/tacos-z-kurczakiem-1.jpg}">
+    <a th:href="@{/design.html}" id="another">Przygotuj kolejne taco</a><br/>
+
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Usuń wymienione problemy i spróbuj ponownie
+        </span>
+    </div>
+    <h3>Adres dostarczenia taco...</h3>
+    <label for="name">Imię:</label>
+    <input type="text" th:field="*{name}"/>
+    <br/>
+
+    <label for="street">Ulica:</label>
+    <input type="text" th:field="*{street}"/>
+    <br/>
+</form>
+
+</body>
+</html>
