@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
 import springwakcji.demo.Ingredient;
 import springwakcji.demo.Ingredient.Type;
+import springwakcji.demo.Taco;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,17 +39,17 @@ public class DesignTacoController {
         );
         Ingredient.Type[] types= Ingredient.Type.values();
         for (Ingredient.Type type: types){
-            model.addAttribute(type.toString().toLowerCase(),
-            filterByType(ingredients, type));
+            model.addAttribute(type.toString().toLowerCase());
+            //filterByType(ingredients, type));
         }
         model.addAttribute("design", new Taco());
         return "design";
     }
-    @PostMapping
-    public String processDesign(Design design){
-        log.info("Przetwarzanie projektu taco: "+ design);
-        return "redirect:/orders/current";
-
-    }
+//    @PostMapping
+//    public String processDesign(Design design){
+//        log.info("Przetwarzanie projektu taco: "+ design);
+//        return "redirect:/orders/current";
+//
+//    }
 
 }
