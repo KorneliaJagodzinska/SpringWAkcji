@@ -43,6 +43,9 @@
     <h3>Sposób płatności...</h3>
     <label for="ccNumber">Numer karty kredytowej:</label>
     <input type="text" th:field="*{ccNumber}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccNumber')}"
+          th:errors="*{ccNumber}">Błąd numeru karty kredytowej.</span>
     <br/>
 
     <label for="ccExpiration">Data ważności:</label>
